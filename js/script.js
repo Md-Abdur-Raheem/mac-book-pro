@@ -94,10 +94,12 @@ document.getElementById('fast-delivery-btn').addEventListener('click', function 
 
 //discount calculation
 function discountCalculation() {
+    const promoBtn = document.getElementById('promo-btn');
     const promoCode = document.getElementById('promo-code');
     const newTotalPrice = document.getElementById('new-total-price');
     if (promoCode.value == 'stevekaku') {
         newTotalPrice.innerText = newTotalPrice.innerText - (newTotalPrice.innerText * .20);
+        promoBtn.setAttribute('disabled', true);
     }
     else {
         alert('Promo code does not match')

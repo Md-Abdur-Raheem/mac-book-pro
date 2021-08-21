@@ -67,7 +67,6 @@ document.getElementById('8-gb-memeory-btn').addEventListener('click', function (
 })
 
 document.getElementById('16-gb-memeory-btn').addEventListener('click', function () {
-    // debugger;
     extraCostCalculation('16-gb-memeory-btn');
 })
 
@@ -95,17 +94,14 @@ document.getElementById('fast-delivery-btn').addEventListener('click', function 
 
 //discount calculation
 function discountCalculation() {
-    const promoBtn = document.getElementById('promo-btn');
-    const promoCode = document.getElementById('promo-code').value;
+    const promoCode = document.getElementById('promo-code');
     const newTotalPrice = document.getElementById('new-total-price');
-    let firstTotalPrice = document.getElementById('first-total-price');
-    if (promoCode == 'stevekaku') {
-        firstTotalPrice.innerText = firstTotalPrice.innerText - (firstTotalPrice.innerText * .20);
-        newTotalPrice.innerText = firstTotalPrice.innerText;
-        promoBtn.setAttribute('disabled',true); // to avoid extra discount
+    if (promoCode.value == 'stevekaku') {
+        newTotalPrice.innerText = newTotalPrice.innerText - (newTotalPrice.innerText * .20);
     }
     else {
         alert('Promo code does not match')
     }
+    promoCode.value = '';
 };
 
